@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="520.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.TaintedPhoenix.Main">
+   <children>
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="17.0" prefHeight="50.0" prefWidth="496.0" styleClass="borderpane" stylesheets="@main.css">
+         <children>
+            <TextField fx:id="AC_numField_hours" alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></TextField>
+            <Label prefHeight="27.0" prefWidth="46.0" style="-fx-padding: 5;" text="hours" textOverrun="CLIP">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <TextField fx:id="AC_numField_minutes" alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></TextField>
+            <Label prefHeight="27.0" prefWidth="55.0" style="-fx-padding: 5;" text="minutes" textOverrun="CLIP">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <TextField alignment="CENTER_RIGHT" fx:id="AC_numField_seconds" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></TextField>
+            <Label prefHeight="27.0" prefWidth="56.0" style="-fx-padding: 5;" text="seconds" textOverrun="CLIP">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <TextField alignment="CENTER_RIGHT" minHeight="-Infinity" fx:id="AC_numField_milliseconds" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <padding>
+                  <Insets right="2.0" />
+               </padding></TextField>
+            <Label prefHeight="27.0" prefWidth="75.0" style="-fx-padding: 5;" text="milliseconds" textOverrun="CLIP">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+         </children>
+      </HBox>
+      <Label layoutX="38.0" layoutY="7.0" styleClass="exclusive" text="Click Interval" />
+      <HBox alignment="CENTER" layoutX="11.0" layoutY="81.0" prefHeight="107.0" prefWidth="241.0" styleClass="borderpane">
+         <children>
+            <VBox alignment="CENTER" prefHeight="106.0" prefWidth="227.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label text="Mouse button:">
+                           <HBox.margin>
+                              <Insets right="5.0" />
+                           </HBox.margin></Label>
+                        <MenuButton fx:id="AC_menuButton_mouseButton" mnemonicParsing="false" prefHeight="9.0" prefWidth="90.0" text="Left" textOverrun="CLIP">
+                           <items>
+                              <MenuItem fx:id="AC_menuItem_mouseLeft" mnemonicParsing="false" text="Left" />
+                              <MenuItem fx:id="AC_menuItem_mouseRight" mnemonicParsing="false" text="Right" />
+                           </items>
+                           <padding>
+                              <Insets bottom="-3.0" left="-3.0" right="-3.0" top="-3.0" />
+                           </padding>
+                        </MenuButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="-15.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="198.0">
+                     <children>
+                        <Label text="Click type:">
+                           <padding>
+                              <Insets right="29.0" />
+                           </padding></Label>
+                        <MenuButton fx:id="AC_menuButton_clickType" mnemonicParsing="false" prefHeight="9.0" prefWidth="90.0" text="Single" textOverrun="CLIP">
+                          <items>
+                            <MenuItem fx:id="AC_menuItem_clickSingle" mnemonicParsing="false" text="Single" />
+                            <MenuItem fx:id="AC_menuItem_clickDouble" mnemonicParsing="false" text="Double" />
+                          </items>
+                           <padding>
+                              <Insets bottom="-3.0" left="-3.0" right="-3.0" top="-3.0" />
+                           </padding>
+                        </MenuButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="21.0" layoutY="72.0" styleClass="exclusive" text="Click Options" />
+      <HBox alignment="CENTER" layoutX="263.0" layoutY="81.0" prefHeight="107.0" prefWidth="243.0" styleClass="borderpane">
+         <children>
+            <VBox alignment="CENTER" prefHeight="106.0" prefWidth="252.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="-15.0" />
+                     </VBox.margin>
+                     <children>
+                        <RadioButton fx:id="AC_radioButton_repeatNum" mnemonicParsing="false" styleClass="mcq1" text="Repeat" />
+                        <TextField fx:id="AC_numField_repeatAmount" alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0" />
+                        <Label text="times">
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="198.0">
+                     <children>
+                        <RadioButton fx:id="AC_radioButton_repeatForever" mnemonicParsing="false" styleClass="mcq1" text="Repeat until stopped" />
+                     </children></HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="276.0" layoutY="73.0" styleClass="exclusive" text="Click Repeat" />
+      <HBox alignment="CENTER" layoutX="10.0" layoutY="200.0" prefHeight="50.0" prefWidth="496.0" styleClass="borderpane" stylesheets="@main.css">
+         <children>
+            <RadioButton fx:id="AC_radioButton_currentPosition" mnemonicParsing="false" styleClass="mcq1" text="Current location" />
+            <RadioButton fx:id="AC_radioButton_pickLocation" layoutX="200.0" layoutY="26.0" mnemonicParsing="false" styleClass="mcq1" />
+            <Button fx:id="AC_button_pickCursorLocation" mnemonicParsing="false" styleClass="pickLoc" text="Pick location" />
+            <Label prefHeight="27.0" prefWidth="18.0" style="-fx-padding: 5;" text="X" textOverrun="CLIP" />
+            <TextField fx:id="AC_numField_cursorX" alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <padding>
+                  <Insets right="2.0" />
+               </padding>
+            </TextField>
+            <Label layoutX="337.0" layoutY="22.0" prefHeight="27.0" prefWidth="18.0" style="-fx-padding: 5;" text="Y" textOverrun="CLIP" />
+            <TextField fx:id="AC_numField_cursorY" alignment="CENTER_RIGHT" layoutX="346.0" layoutY="25.0" minHeight="-Infinity" prefHeight="20.0" prefWidth="52.0" style="-fx-border-radius: 0; -fx-background-radius: 0;" styleClass="numfield" stylesheets="@main.css" text="0">
+               <padding>
+                  <Insets right="2.0" />
+               </padding>
+            </TextField>
+         </children></HBox>
+      <Label layoutX="38.0" layoutY="192.0" styleClass="exclusive" text="Cursor Position" />
+      <HBox layoutX="10.0" layoutY="264.0" prefHeight="128.0" prefWidth="496.0">
+         <children>
+            <VBox prefHeight="112.0" prefWidth="243.0">
+               <children>
+                  <Button fx:id="AC_button_start" mnemonicParsing="false" prefHeight="56.0" prefWidth="249.0" styleClass="controlButton" text="Start" />
+                  <Pane prefHeight="10.0" prefWidth="248.0" />
+                  <Button fx:id="AC_button_setHotkey" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="249.0" styleClass="controlButton" text="Hotkey Setting" />
+               </children></VBox>
+            <Pane prefHeight="128.0" prefWidth="10.0" />
+            <VBox prefHeight="132.0" prefWidth="243.0">
+               <children>
+                  <Button fx:id="AC_button_stop" mnemonicParsing="false" prefHeight="56.0" prefWidth="249.0" styleClass="controlButton" text="Stop" />
+                  <Pane prefHeight="10.0" prefWidth="248.0" />
+                  <Button fx:id="AC_button_keypresser" mnemonicParsing="false" prefHeight="56.0" prefWidth="249.0" styleClass="controlButton" text="Keypresser" />
+               </children></VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

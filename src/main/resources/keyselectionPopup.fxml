@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="100.0" prefWidth="200.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="io.github.TaintedPhoenix.Main">
+   <children>
+      <Label layoutX="10.0" layoutY="10.0" text="Selected Hotkey:" />
+      <Label fx:id="HS_label_info" layoutX="10.0" layoutY="30.0" prefHeight="25.0" prefWidth="180.0" text="Label" textAlignment="CENTER" />
+      <Button fx:id="HS_button_selectKeys" layoutX="10.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" styleClass="controlButton" stylesheets="@main.css" text="Select Keys" />
+      <Button fx:id="HS_button_ok" layoutX="105.0" layoutY="60.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="85.0" styleClass="controlButton" stylesheets="@main.css" text="OK" />
+   </children>
+</AnchorPane>
