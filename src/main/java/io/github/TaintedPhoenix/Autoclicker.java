@@ -73,6 +73,9 @@ public class Autoclicker extends Thread {
                         } catch (InterruptedException er) {
                             stop = true; clicking = false;
                         }
+                        if (!currentPos) {
+                            robot.mouseMove(cursorPos[0], cursorPos[1]);
+                        }
                         robot.mousePress(mouseButton);
                         robot.mouseRelease(mouseButton);
                         robot.mousePress(mouseButton);
@@ -86,6 +89,9 @@ public class Autoclicker extends Thread {
                         } catch (InterruptedException er) {
                             stop = true; clicking = false;
                         }
+                        if (!currentPos) {
+                            robot.mouseMove(cursorPos[0], cursorPos[1]);
+                        }
                         robot.mousePress(mouseButton);
                         robot.mouseRelease(mouseButton);
                     }
@@ -97,6 +103,9 @@ public class Autoclicker extends Thread {
                             sleep(clickInterval);
                         } catch (InterruptedException ignored) {
                             stop = true; clicking = false;
+                        }
+                        if (!currentPos) {
+                            robot.mouseMove(cursorPos[0], cursorPos[1]);
                         }
                         robot.mousePress(mouseButton);
                         robot.mouseRelease(mouseButton);
@@ -110,6 +119,9 @@ public class Autoclicker extends Thread {
                             sleep(clickInterval);
                         } catch (InterruptedException ignored) {
                             stop = true; clicking = false;
+                        }
+                        if (!currentPos) {
+                            robot.mouseMove(cursorPos[0], cursorPos[1]);
                         }
                         robot.mousePress(mouseButton);
                         robot.mouseRelease(mouseButton);

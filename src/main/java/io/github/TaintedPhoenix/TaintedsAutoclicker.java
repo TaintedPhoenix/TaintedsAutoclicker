@@ -41,6 +41,7 @@ import org.json.simple.parser.JSONParser;
  * of autoclicking and keypressing don't freeze the application.
  * The other reason is that Jkeymaster only accepts swing/AWT classes.*/
 import javax.swing.KeyStroke;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -91,7 +92,7 @@ public class TaintedsAutoclicker extends Application
         JSONParser reader = new JSONParser();
         JSONObject data = new JSONObject();
         try {
-            data = (JSONObject) reader.parse(new FileReader("data/hotkeys.json"));
+            data = (JSONObject) reader.parse(new FileReader(getDataPath("hotkeys.json")));
         } catch (Exception ignored) {}
         ArrayList<Integer> autoclHotkey = new ArrayList<>();
         ArrayList<Integer> keypHotkey = new ArrayList<>();
@@ -109,21 +110,39 @@ public class TaintedsAutoclicker extends Application
         keypresserHotkey = assembleCombo(keypHotkey);
     }
 
+    public boolean checkDir() {
+        File dir = new File(getDataPath());
+        if (!dir.exists()) return dir.mkdir();
+        return true;
+    }
+
 
 
     public void saveHotkeys() { //Write the hotkeys to json file
-        HashMap<String, JSONArray> data = new HashMap<>();
-        data.put("autoclicker", simplifyKeycombo(autoclickerHotkey));
-        data.put("keypresser", simplifyKeycombo(keypresserHotkey));
-        try {
-            FileWriter file = new FileWriter("data/hotkeys.json");
-            file.write(new JSONObject(data).toJSONString());
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(!checkDir()) {registerHotkeys();}
+        else {
+            HashMap<String, JSONArray> data = new HashMap<>();
+            data.put("autoclicker", simplifyKeycombo(autoclickerHotkey));
+            data.put("keypresser", simplifyKeycombo(keypresserHotkey));
+            try {
+                FileWriter file = new FileWriter(getDataPath("hotkeys.json"));
+                file.write(new JSONObject(data).toJSONString());
+                file.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            registerHotkeys();
         }
-        registerHotkeys();
+    }
 
+    public String getDataPath() {
+        if (com.sun.jna.Platform.isWindows()) return System.getenv("APPDATA") + File.separator + "TaintedsAutoclicker";
+        else if (com.sun.jna.Platform.isLinux() || com.sun.jna.Platform.isMac()) return System.getProperty("user.home") + File.separator + ".TaintedsAutoclicker";
+        else return System.getProperty("user.home") + File.separator + ".TaintedsAutoclicker";
+    }
+
+    public String getDataPath(String filename) {
+        return getDataPath() + File.separator + filename;
     }
 
     public void registerHotkeys() { //Register the hotkeys with Jkeymaster so the events are triggered when they are activated
