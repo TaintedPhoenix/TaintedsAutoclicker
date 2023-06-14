@@ -1,8 +1,8 @@
-compile = "javac --module-path javafx-sdk-18.0.2/lib --add-modules javafx.controls Main.java"
-run = "java --module-path javafx-sdk-18.0.2/lib --add-modules javafx.controls Main"
+compile = "echo starting"
+run = "java -jar out/artifacts/TaintedsAutoclicker_jar/TaintedsAutoclicker.jar"
 
 entrypoint = "Main.java"
-hidden = ["**/*.class", "javafx-sdk-18.0.2"]
+hidden = []
 
 [unitTest]
 language = "java"
