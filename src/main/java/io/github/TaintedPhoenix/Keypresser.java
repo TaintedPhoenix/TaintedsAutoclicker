@@ -50,7 +50,7 @@ public class Keypresser extends Thread {
         pressing = true;
         try {
             Robot robot = new Robot();
-            if (repeatForever) {
+            if (repeatForever) { //Pressing the keys until interrupted
                 while (!stop && !interrupted()) {
                     try {
                         sleep(pressInterval);
@@ -59,7 +59,7 @@ public class Keypresser extends Thread {
                     keys.forEach(robot::keyPress);
                     keys.forEach(robot::keyRelease);
                 }
-            } else {
+            } else { //Pressing the keys until interrupted or for every repeat
                 for (int i = 0; i < repeats && !stop && !interrupted(); i++) {
                     try {
                         sleep(pressInterval);
@@ -68,7 +68,7 @@ public class Keypresser extends Thread {
                     keys.forEach(robot::keyRelease);
                 }
                 Thread.sleep(50);
-                callback.keypressDone();
+                callback.keypressDone(); //lets the application thread know it has finished
                 pressing = false;
 
             }

@@ -1,5 +1,6 @@
 package io.github.TaintedPhoenix;
-
+//Using Maven for dependencies
+//Group id is my Github page
 
 //com.tulskiy.keymaster
 /*This is the library that provides native (global) hotkeys
@@ -92,7 +93,7 @@ public class TaintedsAutoclicker extends Application
         JSONParser reader = new JSONParser();
         JSONObject data = new JSONObject();
         try {
-            data = (JSONObject) reader.parse(new FileReader(getDataPath("hotkeys.json")));
+            data = (JSONObject) reader.parse(new FileReader(getDataPath("hotkeys.json"))); //Reading the json file
         } catch (Exception ignored) {}
         ArrayList<Integer> autoclHotkey = new ArrayList<>();
         ArrayList<Integer> keypHotkey = new ArrayList<>();
@@ -107,12 +108,12 @@ public class TaintedsAutoclicker extends Application
             keypHotkey.add(KeyCode.F7.getCode());
         }
         autoclickerHotkey = assembleCombo(autoclHotkey);
-        keypresserHotkey = assembleCombo(keypHotkey);
+        keypresserHotkey = assembleCombo(keypHotkey); //turning it into the correct format
     }
 
-    public boolean checkDir() {
+    public boolean checkDir() { //Make sure the directory exists
         File dir = new File(getDataPath());
-        if (!dir.exists()) return dir.mkdir();
+        if (!dir.exists()) return dir.mkdir(); //If it doesn't, make it, or if the structure doesn't exist at all, (like on replit) return false, so we know not to try and save anything there.
         return true;
     }
 
@@ -126,7 +127,7 @@ public class TaintedsAutoclicker extends Application
             data.put("keypresser", simplifyKeycombo(keypresserHotkey));
             try {
                 FileWriter file = new FileWriter(getDataPath("hotkeys.json"));
-                file.write(new JSONObject(data).toJSONString());
+                file.write(new JSONObject(data).toJSONString()); //write the JSON data to the file
                 file.close();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -135,7 +136,7 @@ public class TaintedsAutoclicker extends Application
         }
     }
 
-    public String getDataPath() {
+    public String getDataPath() { //Get the data path for whatever os is currently in use, does not work on replit hence why saving does not work on Replit.
         if (com.sun.jna.Platform.isWindows()) return System.getenv("APPDATA") + File.separator + "TaintedsAutoclicker";
         else if (com.sun.jna.Platform.isLinux() || com.sun.jna.Platform.isMac()) return System.getProperty("user.home") + File.separator + ".TaintedsAutoclicker";
         else return System.getProperty("user.home") + File.separator + ".TaintedsAutoclicker";
@@ -349,7 +350,7 @@ public class TaintedsAutoclicker extends Application
         autocl.addEventFilter(MouseEvent.MOUSE_CLICKED, autoclButtonHandler);
 
         //HotkeyButton
-        Button hotkeyButton = (Button) keypressScene.lookup("#KP_button_setHotkey");
+        Button hotkeyButton = (Button) keypressScene.lookup("#KP_button_setHotkey"); //All of this stuff is just action handling
         EventHandler<MouseEvent> handlerHotkey = mouseEvent -> {
             if (promptOpen) return;
             try { showHotkeySelection("keypresser"); } catch (Exception ignored) {}
@@ -357,7 +358,7 @@ public class TaintedsAutoclicker extends Application
         hotkeyButton.addEventFilter(MouseEvent.MOUSE_CLICKED, handlerHotkey);
 
         //SelectKeyButton
-        Button selectKeyButton = (Button) keypressScene.lookup("#KP_button_keySetting");
+        Button selectKeyButton = (Button) keypressScene.lookup("#KP_button_keySetting"); //Doing things when the various buttons are activated
         EventHandler<MouseEvent> handlerSelectKey = mouseEvent -> {
             if (promptOpen) return;
             try { showKeySelection(); } catch (Exception ignored) {}
@@ -616,7 +617,6 @@ public class TaintedsAutoclicker extends Application
         Button okButton = (Button) keyScene.lookup("#KS_button_ok");
         EventHandler<MouseEvent> okHandler = mouseEvent -> {
             promptOpen = false;
-            //put some shit about saving keys here
             newStage.close();
         };
         okButton.addEventFilter(MouseEvent.MOUSE_CLICKED, okHandler);

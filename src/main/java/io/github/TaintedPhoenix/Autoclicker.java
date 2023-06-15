@@ -53,19 +53,19 @@ public class Autoclicker extends Thread {
         clicking = true;
         try {
             Robot robot = new Robot();
-            if (!currentPos) {
+            if (!currentPos) { //Moves the mouse to the selected position if option enabled
                 robot.mouseMove(cursorPos[0], cursorPos[1]);
             }
             int mouseButton = InputEvent.BUTTON1_DOWN_MASK;
-            if (rightClick) {mouseButton = InputEvent.BUTTON2_DOWN_MASK;}
+            if (rightClick) {mouseButton = InputEvent.BUTTON2_DOWN_MASK;} //Selects the right input button
             robot.mousePress(mouseButton);
-            robot.mouseRelease(mouseButton);
+            robot.mouseRelease(mouseButton); //clicks for the first time
             if (doubleClick) {
                 robot.mousePress(mouseButton);
                 robot.mouseRelease(mouseButton);
             }
 
-            if (repeatForever) {
+            if (repeatForever) { //loop through clicking until stopped or the amount of repeats are finished
                 if (doubleClick) {
                     while (!stop && !interrupted()) {
                         try {
@@ -128,7 +128,7 @@ public class Autoclicker extends Thread {
                     }
                 }
                 Thread.sleep(50);
-                callback.clickDone();
+                callback.clickDone(); //call a function in the app class to let it know this is finished
                 clicking = false;
 
             }
