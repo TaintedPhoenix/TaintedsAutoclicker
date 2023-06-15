@@ -1,5 +1,5 @@
 compile = "echo starting"
-run = "java -jar out/artifacts/TaintedsAutoclicker_jar/TaintedsAutoclicker.jar"
+run = "java -jar out/artifacts/AutoclickerLinux_jar/TaintedsAutoclicker.jar"
 
 entrypoint = "Main.java"
 hidden = []
